@@ -14,6 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 body {
@@ -40,7 +41,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #02ccba 0%, #5f248e 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -54,31 +55,60 @@ h1 {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #2e3d49;
     font-size: 0;
-    color: #ffffff;
+    color: #e4e3e3;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    cursor: pointer;
+    transform-style:preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
 }
-
-.deck .card.open {
-    transform: rotateY(0);
+.card-face {
+    position: absolute;
+    color: white;
+    font-size: 33px;
+    text-align: center;
+    font-weight: bold;
+    height: 125px;
+    width: 125px;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    backface-visibility: hidden ;
+  }
+.deck .card.open {   
+    transform: translateX(-100%)rotateY(-180deg);
     background: #02b3e4;
+    transition: transform 1s;
     cursor: default;
+   
 }
+.card .front {
+    background: #3b2258;  
+  }
 
-.deck .card.show {
-    font-size: 33px;
-}
-
-.deck .card.match {
-    cursor: default;
+.card .back {
+    transform: rotateY(180deg); 
+  }
+ .lost-star{
+    color: #f1f1f1!important; 
+ }
+.card .back.match {
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
     background: #02ccba;
-    font-size: 33px;
+}
+ .card .back.notmatch {
+    background: #cc0202;
 }
 
 /*
@@ -89,6 +119,20 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    color: white;
+    font-size: 1.2em;
+    width: 450px;
+    min-height: 50px;
+    background: linear-gradient(160deg, #02ccba 0%, #5f248e 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
 }
 
 .score-panel .stars {
@@ -101,9 +145,88 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
-}
+} 
+.lost-star{
+    color: #c59a9a!important; 
+ }
+ 
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
+/*
+ * Styles for the Score Panel
+ */
+.wining-panel {
+    color: white;
+    font-size: 1.2em;
+    width: 450px;
+    min-height: 250px;
+    background: linear-gradient(160deg, #02ccba 0%, #5f248e 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+/* button style from  https://www.magnet4blogging.net/button-styles/*/
+.fa-thumbs-o-up {
+    animation: rubberBand 3.6s ease infinite;
+    animation-duration: 1s;
+}
+.play-again{
+    color: #fff !important;
+    text-transform: uppercase;
+    background: #60a3bc;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    }
+    
+.play-again:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+.hide{
+    display: none !important;
+  }
+/* rubberBand animation from https://codepen.io/tomlongo/pen/BKXZyO */
+@keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
+  
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+

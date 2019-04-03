@@ -1,86 +1,53 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Matching Game</title>
-    <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>Walaa's Matching Game</title>
+        <meta name="author" content="WALAA ALREFAEE">
+        <link rel="icon" href="img/favicon.ico?v=1.1"> 
+        <meta name="description" content="Walaa's Matching Game">
+        <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">  
+        <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Walaa's Matching Game</h1>
+            </header>
+            <section class="score-panel hide">
+                <ul class="stars">
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                </ul>
 
-    <div class="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
+               <p> Moves: <span class="moves"> 0 </span> </p>
+               <p>  <span class="matched"> 0 </span> of 8</p>
+                <div class="timer">
+                 <p>  Time: <span class="time"> 00:00 </span>  </p> 
+                </div>
+                <div class="restart">
+                   <p> <i class="fa fa-repeat"></i></p>
+                </div>
+            </section>
 
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
+            <ul class="deck hide">
+            </ul>
 
-        	<span class="moves">3</span> Moves
-
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
-
-        <ul class="deck">
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card open show">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-        </ul>
-    </div>
-
-    <script src="js/app.js"></script>
-</body>
+            <section class="wining-panel hide">
+                <i class="fa fa-thumbs-o-up fa-4x"></i>
+                <h2>
+                    <span class="">Congratulations! You Won!</span>
+                </h2>
+                <p> You consume 
+                    <span class="last-moves">0</span> moves and spent
+                    <span class="last-time">00.00</span> minutes to finish the game
+                    with<span class="final-stars"> 0 </span> stars
+                </p>
+                <p><span class="play-again">play again</span></p>
+            </section>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
 </html>
